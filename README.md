@@ -1,2 +1,2 @@
-# [短应用™文档](duan-docs/README.md)
+# [短应用™文档](https://github.com/leonxi/duan-docs)
 短应用™文档
