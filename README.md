@@ -1,5 +1,5 @@
 # [短应用™ 文档](https://www.guobaa.com/doc/)
-[短应用™](https://www.guobaa.com)是一个应用网关, 可以把类似GitLab, Taiga, MongoExpress, phpMySQLAdmin, Portainer以及自己开发的应用, 在同一个域名网站上提供服务;
+[短应用™](https://www.guobaa.com)是一个应用网关, 可以把类似GitLab, Taiga, MongoExpress, phpMySQLAdmin, Portainer, Docsify以及自己开发的应用, 在同一个域名网站上提供服务;
     通过短应用™统一登录和独立菜单, 在每个应用以外提供统一的用户认证、授权和入口.
 
 ## 由来
@@ -16,3 +16,6 @@
 * Netflix Zuul作为可配置的应用网关, 通过MySQL配置路由, 反向代理 `http` 或 `https`请求, 实现 `网页` 、 `静态文件` 和 `Restful接口` 的调度
 * Docker Swarm作为部署环境, 提供应用系统的DNS解析、集群部署和快捷发布环境
 * 短应用™ 协议规范了路由、用户和权限, 例如: 约定了通过第一层子路径映射每个应用系统的访问路径, `/doc/` 为docsify文档系统的入口, `/tai/` 为Taiga系统的入口 ...
+
+## 短应用™ 协议
+(待完善)
