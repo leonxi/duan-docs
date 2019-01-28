@@ -1,0 +1,47 @@
+version: "3.3"
+services:
+  duan-mysql:
+    image: leonxi/duan-mysql
+    hostname: duan-mysql
+
+    volumes:
+      - "mysql-data:/var/lib/mysql"
+    networks:
+      - duan-network-overlay
+    deploy:
+      replicas: 1
+      endpoint_mode: dnsrr
+
+  adminer:
+    image: adminer
+    ports:
+      - target: 8080
+        published: 8089
+        protocol: tcp
+        mode: host
+    networks:
+      - duan-network-overlay
+    deploy:
+      replicas: 1
+      endpoint_mode: dnsrr
+
+  duan-mongo:
+    image: mongo
+    hostname: duan-mongo
+
+    volumes:
+      - "mongo-data:/data/db"
+    networks:
+      - duan-network-overlay
+    deploy:
+      replicas: 1
+      endpoint_mode: dnsrr
+
+volumes:
+  mysql-data:
+  mongo-data:
+
+networks:
+  duan-network-overlay:
+    driver: overlay
+
