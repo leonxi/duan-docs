@@ -34,7 +34,7 @@ services:
       - target: 80
         published: 80
         protocol: tcp
-        mode: ingress
+        mode: host
     networks:
       - duan-network-overlay
     deploy:

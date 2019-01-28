@@ -33,5 +33,21 @@ curl https://raw.githubusercontent.com/leonxi/duan-docs/master/deploy-duan-stack
 ```bash
 sh deploy-duan-stack.sh
 ```
+当看到下面的结果, 表示已经部署成功
+```
+[root@centos7 duan-stack]# sh deploy-duan-stack.sh
+Nothing found in stack: duan
+Creating network duan_duan-network-overlay
+Creating service duan_duan-auth
+Creating service duan_duan-auth-origin
+Creating service duan_duan-grant
+Creating service duan_duan-home
+Creating service duan_mysql
+Creating service duan_mongo
+Creating service duan_duan-nginx
+Creating service duan_duan-zuul
+[root@centos7 duan-stack]#
+```
+
 ## 版权 / License
 版权所有 © 2019 上海效吉软件有限公司
