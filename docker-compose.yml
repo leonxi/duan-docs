@@ -97,5 +97,5 @@ volumes:
 
 networks:
   duan-network-overlay:
-    external: true
+    driver: overlay
 
