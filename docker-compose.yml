@@ -44,6 +44,8 @@ services:
   duan-zuul:
     image: leonxi/duan-zuul
     hostname: duan-zuul
+    depends_on:
+      - mysql
 
     networks:
       - duan-network-overlay
@@ -54,6 +56,8 @@ services:
   duan-auth:
     image: leonxi/duan-auth
     hostname: duan-aba
+    depends_on:
+      - mysql
 
     networks:
       - duan-network-overlay
@@ -64,6 +68,8 @@ services:
   duan-auth-origin:
     image: leonxi/duan-auth-origin
     hostname: duan-auo
+    depends_on:
+      - mongo
 
     networks:
       - duan-network-overlay
@@ -74,6 +80,8 @@ services:
   duan-grant:
     image: leonxi/duan-grant
     hostname: duan-abd
+    depends_on:
+      - mysql
 
     networks:
       - duan-network-overlay
@@ -84,6 +92,8 @@ services:
   duan-home:
     image: leonxi/duan-home
     hostname: duan-aac
+    depends_on:
+      - mysql
 
     networks:
       - duan-network-overlay
