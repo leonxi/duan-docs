@@ -80,6 +80,6 @@ volumes:
   mongo-data:
 
 networks:
-  duan-network-overlay:
+  duan-storage_duan-network-overlay:
     external: true
 
