@@ -1,0 +1,101 @@
+version: "3.3"
+services:
+  mysql:
+    image: mysql:5.7
+    hostname: duan-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+
+    volumes:
+      - "mysql-data:/var/lib/mysql"
+    networks:
+      - duan-network-overlay
+    deploy:
+      replicas: 1
+      endpoint_mode: dnsrr
+
+  mongo:
+    image: mongo
+    hostname: duan-mongo
+
+    volumes:
+      - "mongo-data:/data/db"
+    networks:
+      - duan-network-overlay
+    deploy:
+      replicas: 1
+      endpoint_mode: dnsrr
+
+  duan-nginx:
+    image: leonxi/duan-nginx
+    hostname: duan-nginx
+
+    ports:
+      - target: 80
+        published: 80
+        protocol: tcp
+        mode: ingress
+    networks:
+      - duan-network-overlay
+    deploy:
+      replicas: 1
+      endpoint_mode: dnsrr
+
+  duan-zuul:
+    image: leonxi/duan-zuul
+    hostname: duan-zuul
+
+    networks:
+      - duan-network-overlay
+    deploy:
+      replicas: 1
+      endpoint_mode: dnsrr
+
+  duan-auth:
+    image: leonxi/duan-auth
+    hostname: duan-aba
+
+    networks:
+      - duan-network-overlay
+    deploy:
+      replicas: 1
+      endpoint_mode: dnsrr
+
+  duan-auth-origin:
+    image: leonxi/duan-auth-origin
+    hostname: duan-auo
+
+    networks:
+      - duan-network-overlay
+    deploy:
+      replicas: 1
+      endpoint_mode: dnsrr
+
+  duan-grant:
+    image: leonxi/duan-grant
+    hostname: duan-abd
+
+    networks:
+      - duan-network-overlay
+    deploy:
+      replicas: 1
+      endpoint_mode: dnsrr
+
+  duan-home:
+    image: leonxi/duan-home
+    hostname: duan-aac
+
+    networks:
+      - duan-network-overlay
+    deploy:
+      replicas: 1
+      endpoint_mode: dnsrr
+
+volumes:
+  mysql-data:
+  mongo-data:
+
+networks:
+  duan-network-overlay:
+    external: true
+
