@@ -20,12 +20,12 @@
 ## 快速开始
 
 ### 使用Docker安装
-下载docker-compose.yml
-```
+1. 下载docker-compose.yml
+```bash
 curl https://raw.githubusercontent.com/leonxi/duan-docs/master/docker-compose.yml -o docker-compose.yml
 ```
-下载deploy-duan-stack.sh
-```
+2. 下载deploy-duan-stack.sh, 并添加执行权限
+```bash
 curl https://raw.githubusercontent.com/leonxi/duan-docs/master/deploy-duan-stack.sh -o deploy-duan-stack.sh && chmod +x deploy-duan-stack.sh
 ```
 
