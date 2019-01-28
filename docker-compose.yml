@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   duan-mysql:
-    image: leonxi/duan-mysql:5.7
+    image: leonxi/duan-mysql
     hostname: duan-mysql
 
     volumes:
