@@ -12,6 +12,16 @@ services:
       replicas: 1
       endpoint_mode: dnsrr
 
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8089
+    networks:
+      - duan-network-overlay
+    deploy:
+      replicas: 1
+      endpoint_mode: dnsrr
+
   duan-mongo:
     image: mongo
     hostname: duan-mongo
