@@ -32,7 +32,7 @@ services:
 
     ports:
       - target: 80
-        published: 80
+        published: 8088
         protocol: tcp
         mode: host
     networks:
