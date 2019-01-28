@@ -3,8 +3,6 @@ services:
   duan-mysql:
     image: leonxi/duan-mysql:5.7
     hostname: duan-mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: 1234
 
     volumes:
       - "mysql-data:/var/lib/mysql"
