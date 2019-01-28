@@ -1,6 +1,6 @@
 version: "3.3"
 services:
-  mysql:
+  duan-mysql:
     image: mysql:5.7
     hostname: duan-mysql
     environment:
@@ -14,7 +14,7 @@ services:
       replicas: 1
       endpoint_mode: dnsrr
 
-  mongo:
+  duan-mongo:
     image: mongo
     hostname: duan-mongo
 
@@ -53,7 +53,7 @@ services:
       replicas: 1
       endpoint_mode: dnsrr
 
-  duan-auth:
+  duan-aba:
     image: leonxi/duan-auth
     hostname: duan-aba
     depends_on:
@@ -65,7 +65,7 @@ services:
       replicas: 1
       endpoint_mode: dnsrr
 
-  duan-auth-origin:
+  duan-auo:
     image: leonxi/duan-auth-origin
     hostname: duan-auo
     depends_on:
@@ -77,7 +77,7 @@ services:
       replicas: 1
       endpoint_mode: dnsrr
 
-  duan-grant:
+  duan-abd:
     image: leonxi/duan-grant
     hostname: duan-abd
     depends_on:
@@ -89,7 +89,7 @@ services:
       replicas: 1
       endpoint_mode: dnsrr
 
-  duan-home:
+  duan-aac:
     image: leonxi/duan-home
     hostname: duan-aac
     depends_on:
