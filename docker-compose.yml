@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   duan-mysql:
-    image: leonxi/duan-mysql
+    image: leonxi/duan-mysql:5.7
     hostname: duan-mysql
     environment:
       MYSQL_ROOT_PASSWORD: 1234
@@ -45,7 +45,7 @@ services:
     image: leonxi/duan-zuul
     hostname: duan-zuul
     depends_on:
-      - mysql
+      - duan-mysql
 
     networks:
       - duan-network-overlay
@@ -57,7 +57,7 @@ services:
     image: leonxi/duan-auth
     hostname: duan-aba
     depends_on:
-      - mysql
+      - duan-mysql
 
     networks:
       - duan-network-overlay
@@ -69,7 +69,7 @@ services:
     image: leonxi/duan-auth-origin
     hostname: duan-auo
     depends_on:
-      - mongo
+      - duan-mongo
 
     networks:
       - duan-network-overlay
@@ -81,7 +81,7 @@ services:
     image: leonxi/duan-grant
     hostname: duan-abd
     depends_on:
-      - mysql
+      - duan-mysql
 
     networks:
       - duan-network-overlay
@@ -93,7 +93,7 @@ services:
     image: leonxi/duan-home
     hostname: duan-aac
     depends_on:
-      - mysql
+      - duan-mysql
 
     networks:
       - duan-network-overlay
