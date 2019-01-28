@@ -15,7 +15,10 @@ services:
   adminer:
     image: adminer
     ports:
-      - 8080:8089
+      - target: 8080
+        published: 8089
+        protocol: tcp
+        mode: host
     networks:
       - duan-network-overlay
     deploy:
