@@ -10,7 +10,7 @@ services:
         protocol: tcp
         mode: host
     networks:
-      - duan-network-overlay
+      - duan-storage_duan-network-overlay
     deploy:
       replicas: 1
       endpoint_mode: dnsrr
@@ -22,7 +22,7 @@ services:
       - duan-mysql
 
     networks:
-      - duan-network-overlay
+      - duan-storage_duan-network-overlay
     deploy:
       replicas: 1
       endpoint_mode: dnsrr
@@ -34,7 +34,7 @@ services:
       - duan-mysql
 
     networks:
-      - duan-network-overlay
+      - duan-storage_duan-network-overlay
     deploy:
       replicas: 1
       endpoint_mode: dnsrr
@@ -46,7 +46,7 @@ services:
       - duan-mongo
 
     networks:
-      - duan-network-overlay
+      - duan-storage_duan-network-overlay
     deploy:
       replicas: 1
       endpoint_mode: dnsrr
@@ -58,7 +58,7 @@ services:
       - duan-mysql
 
     networks:
-      - duan-network-overlay
+      - duan-storage_duan-network-overlay
     deploy:
       replicas: 1
       endpoint_mode: dnsrr
@@ -70,7 +70,7 @@ services:
       - duan-mysql
 
     networks:
-      - duan-network-overlay
+      - duan-storage_duan-network-overlay
     deploy:
       replicas: 1
       endpoint_mode: dnsrr
