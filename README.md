@@ -20,7 +20,14 @@
 ## 快速开始
 
 ### 使用Docker安装
-(待完善)
+下载docker-compose.yml
+```
+curl https://raw.githubusercontent.com/leonxi/duan-docs/master/docker-compose.yml -o docker-compose.yml
+```
+下载deploy-duan-stack.sh
+```
+curl https://raw.githubusercontent.com/leonxi/duan-docs/master/deploy-duan-stack.sh -o deploy-duan-stack.sh && chmod +x deploy-duan-stack.sh
+```
 
 ## 版权 / License
 版权所有 © 2019 上海效吉软件有限公司
