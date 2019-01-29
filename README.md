@@ -94,10 +94,12 @@ docker service logs -f duan-auo
 docker service ps duan-nginx
 ```
 
-访问
+访问短应用™
 ```
 http://ip-duan-nginx:8088/
 ```
+出现以下页面, 表示安装成功
+![短应用™ 欢迎首页](https://raw.githubusercontent.com/leonxi/duan-docs/master/welcome.png)
 
 ## 版权 / License
 版权所有 © 2019 上海效吉软件有限公司
