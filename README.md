@@ -19,34 +19,73 @@
 
 ## 快速开始
 
-### 使用Docker安装
-1. 下载docker-compose.yml
+### 使用Docker Swarm安装
+1. 创建网络
 ```bash
-curl https://raw.githubusercontent.com/leonxi/duan-docs/master/docker-compose.yml -o docker-compose.yml
-```
-2. 下载deploy-duan-stack.sh, 并添加执行权限
-```bash
-curl https://raw.githubusercontent.com/leonxi/duan-docs/master/deploy-duan-stack.sh -o deploy-duan-stack.sh && chmod +x deploy-duan-stack.sh
+docker network create --driver overlay duan-network-overlay
 ```
 
-3. 部署短应用™Stack
+2. 部署MySQL数据库
 ```bash
-sh deploy-duan-stack.sh
+docker service rm duan-mysql
+docker service create --replicas 1 --name duan-mysql --network duan-network-overlay --endpoint-mode=dnsrr leonxi/duan-mysql --lower_case_table_names=1
+docker service logs -f duan-mysql
 ```
-当看到下面的结果, 表示已经部署成功
+
+(可选) 部署adminer, 查看短应用™初始化结果
+```bash
+docker service rm duan-adminer
+docker service create --replicas 1 --name duan-adminer --network duan-network-overlay --endpoint-mode=dnsrr --publish published=8089,target=8080,mode=host adminer
+docker service logs -f duan-adminer
 ```
-[root@centos7 duan-stack]# sh deploy-duan-stack.sh
-Nothing found in stack: duan
-Creating network duan_duan-network-overlay
-Creating service duan_duan-auth
-Creating service duan_duan-auth-origin
-Creating service duan_duan-grant
-Creating service duan_duan-home
-Creating service duan_mysql
-Creating service duan_mongo
-Creating service duan_duan-nginx
-Creating service duan_duan-zuul
-[root@centos7 duan-stack]#
+
+3. 部署Mongo数据库
+```bash
+docker service rm duan-mongo
+docker service create --replicas 1 --name duan-mongo --network duan-network-overlay --endpoint-mode=dnsrr mongo
+docker service logs -f duan-mongo
+```
+
+4. 部署短应用™ Zuul网关
+```bash
+docker service rm duan-zuul
+docker service create --replicas 1 --name duan-zuul --network duan-network-overlay --endpoint-mode=dnsrr leonxi/duan-zuul
+docker service logs -f duan-zuul
+```
+
+5. 部署短应用™ Nginx代理
+```bash
+docker service rm duan-nginx
+docker service create --replicas 1 --name duan-nginx --network duan-network-overlay --endpoint-mode=dnsrr --publish published=8088,target=80,mode=host leonxi/duan-nginx
+docker service logs -f duan-nginx
+```
+
+6. 部署短应用™ 欢迎首页
+```bash
+docker service rm duan-aac
+docker service create --replicas 1 --name duan-aac --network duan-network-overlay --endpoint-mode=dnsrr leonxi/duan-home
+docker service logs -f duan-aac
+```
+
+7. 部署短应用™ 用户认证
+```bash
+docker service rm duan-aba
+docker service create --replicas 1 --name duan-aba --network duan-network-overlay --endpoint-mode=dnsrr leonxi/duan-auth
+docker service logs -f duan-aba
+```
+
+8. 部署短应用™ 用户授权
+```bash
+docker service rm duan-abd
+docker service create --replicas 1 --name duan-abd --network duan-network-overlay --endpoint-mode=dnsrr leonxi/duan-grant
+docker service logs -f duan-abd
+```
+
+9. 部署短应用™ 内建单点登录
+```bash
+docker service rm duan-auo
+docker service create --replicas 1 --name duan-auo --network duan-network-overlay --endpoint-mode=dnsrr leonxi/duan-auth-origin
+docker service logs -f duan-auo
 ```
 
 ## 版权 / License
