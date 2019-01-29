@@ -8,9 +8,6 @@ services:
       - "mysql-data:/var/lib/mysql"
     networks:
       - duan-network-overlay
-    build:
-      args:
-        - lower_case_table_names=1
     deploy:
       replicas: 1
       endpoint_mode: dnsrr
