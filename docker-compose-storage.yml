@@ -4,8 +4,8 @@ services:
     image: leonxi/duan-mysql
     hostname: duan-mysql
 
-    volumes:
-      - "mysql-data:/var/lib/mysql"
+#    volumes:
+#      - "mysql-data:/var/lib/mysql"
     networks:
       - duan-network-overlay
     deploy:
@@ -29,17 +29,17 @@ services:
     image: mongo
     hostname: duan-mongo
 
-    volumes:
-      - "mongo-data:/data/db"
+#    volumes:
+#      - "mongo-data:/data/db"
     networks:
       - duan-network-overlay
     deploy:
       replicas: 1
       endpoint_mode: dnsrr
 
-volumes:
-  mysql-data:
-  mongo-data:
+#volumes:
+#  mysql-data:
+#  mongo-data:
 
 networks:
   duan-network-overlay:
