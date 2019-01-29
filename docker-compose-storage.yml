@@ -3,7 +3,7 @@ services:
   duan-mysql:
     image: leonxi/duan-mysql
     hostname: duan-mysql
-    command: --lower_case_table_names=1
+#    command: --lower_case_table_names=1
 #    volumes:
 #      - "mysql-data:/var/lib/mysql"
     networks:
