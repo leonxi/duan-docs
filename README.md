@@ -88,5 +88,16 @@ docker service create --replicas 1 --name duan-auo --network duan-network-overla
 docker service logs -f duan-auo
 ```
 
+10. 访问短应用™
+确认Nginx代理部署的节点
+```bash
+docker service ps duan-nginx
+```
+
+访问
+```
+http://ip-duan-nginx:8088/
+```
+
 ## 版权 / License
 版权所有 © 2019 上海效吉软件有限公司
