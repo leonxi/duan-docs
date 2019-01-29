@@ -91,7 +91,14 @@ docker service create --replicas 1 --name duan-auo --network duan-network-overla
 docker service logs -f duan-auo
 ```
 
-10. 访问短应用™
+10. 部署短应用™ 菜单
+```bash
+docker service rm duan-aad
+docker service create --replicas 1 --name duan-aad --network duan-network-overlay --endpoint-mode=dnsrr leonxi/duan-menu
+docker service logs -f duan-aad
+```
+
+11. 访问短应用™
 确认Nginx代理部署的节点
 ```bash
 docker service ps duan-nginx
